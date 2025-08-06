@@ -15,10 +15,30 @@ class CreateItems extends BaseMigration
     public function change(): void
     {
         $table = $this->table('items');
-        $table->addColumn('name', 'string', [
+        $table->addColumn('nome', 'string', [
             'limit' => 255,
             'null' => false
         ]);
+
+        $table->addColumn('preço', 'decimal', [
+            'precision' => 10,
+            'scale' => 2,
+            'null' => false,
+        ]);
+        
+        $table->addColumn('tipo', 'string', [
+            'limit' => 100,
+            'null' => false,
+        ]);    
+        $table->addColumn('quantidade', 'integer', [
+            'default' => 0,
+            'null' => false,
+        ]);
+        $table->addColumn('descrição', 'text', [
+            'limit' => 300,
+            'null' => true,
+        ]);
+            
         $table->create();
     }
 }
