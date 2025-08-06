@@ -14,15 +14,26 @@ class CreateTransactions extends BaseMigration
      */
     public function change(): void
     {
-        $table = $this->table('transactions');
-        $table->addColumn('item_id','integer', ['null' => false])
-            ->addColumn('type', 'enum', [
-                'values' => ['purchase', 'sale', 'return'],
-                'null' => false
-            ])
-            // 7) Define que 'item_id' é uma chave estrangeira para 'items.id' e, se o item for apagado, apaga também as transações relacionadas
-            ->addForeignKey('item_id', 'items', 'id', ['delete'=> 'CASCADE'])
-            // 8) Executa a criação da tabela
-            ->create();
+    $table = $this->table('transactions');
+    $table->addColumn('item_id','integer', ['null' => false]);
+    $table->addColumn('type', 'enum', [
+        'values' => ['purchase', 'sale', 'return'],
+        'null' => false
+    ]);
+    $table->addColumn('transactions_date', 'date', [
+        'null' => false
+    ]);
+    $table->addColumn('quantity','integer',[
+        'null' => false,
+        'default' => 1    
+    ]);        
+    $table->addColumn('total_price', 'decimal', [
+        'precision' => 10,
+        'scale' => 2,
+        'null' => false
+    ]);     
+    $table->addForeignKey('item_id', 'items', 'id', ['delete'=> 'CASCADE']);
+
+    $table->create();
     }
 }
