@@ -20,7 +20,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: parts_database
       MYSQL_USER: user
-      MYSQL_PASSWORD: JojnbdNyJO
+      MYSQL_PASSWORD: root
     ports:
       - "3306:3306"
     volumes:
