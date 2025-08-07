@@ -20,7 +20,7 @@ class CreateItems extends BaseMigration
             'null' => false
         ]);
 
-        $table->addColumn('preço', 'decimal', [
+        $table->addColumn('preco', 'decimal', [
             'precision' => 10,
             'scale' => 2,
             'null' => false,
