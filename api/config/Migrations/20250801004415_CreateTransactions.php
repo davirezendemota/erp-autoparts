@@ -16,24 +16,26 @@ class CreateTransactions extends BaseMigration
     {
     $table = $this->table('transactions');
     $table->addColumn('item_id','integer', ['null' => false]);
-    $table->addColumn('type', 'enum', [
-        'values' => ['purchase', 'sale', 'return'],
+    $table->addColumn('tipo', 'enum', [
+        'values' => ['compra', 'venda', 'devolucao'],
         'null' => false
     ]);
-    $table->addColumn('transactions_date', 'date', [
+    $table->addColumn('data_transacao', 'date', [
         'null' => false
     ]);
-    $table->addColumn('quantity','integer',[
+    $table->addColumn('quantidade','integer',[
         'null' => false,
-        'default' => 1    
-    ]);        
-    $table->addColumn('total_price', 'decimal', [
+        'default' => 1
+    ]);
+    $table->addColumn('preco_total', 'decimal', [
         'precision' => 10,
         'scale' => 2,
         'null' => false
     ]);     
     $table->addForeignKey('item_id', 'items', 'id', ['delete'=> 'CASCADE']);
-
+    $table->addColumn('created', 'datetime', ['default' => 'CURRENT_TIMESTAMP']);
+    $table->addColumn('modified', 'datetime', ['null' => true]);
+    
     $table->create();
     }
 }
