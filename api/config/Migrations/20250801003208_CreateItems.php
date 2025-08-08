@@ -34,7 +34,7 @@ class CreateItems extends BaseMigration
             'default' => 0,
             'null' => false,
         ]);
-        $table->addColumn('descrição', 'text', [
+        $table->addColumn('descricao', 'text', [
             'limit' => 300,
             'null' => true,
         ]);
