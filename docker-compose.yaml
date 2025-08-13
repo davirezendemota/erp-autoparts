@@ -1,26 +1,30 @@
+version: '3.8'
+
 services:
-  api:
-    build: 
+  app:
+    build:
       context: ./api
+    container_name: cakephp_app
+    working_dir: /var/www/html
     volumes:
-      - vendor:/var/www/html/vendor
       - ./api:/var/www/html
     ports:
-      - 9000:80
-  mysql:
-    image: mysql:8.0
+      - "8080:80"
+    depends_on:
+      - db
+  db:
+    image: mysql:5.7
     container_name: mysql_db
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: cakephp
-      MYSQL_USER: cakephp
-      MYSQL_PASSWORD: cakephp
+      MYSQL_DATABASE: parts_database
+      MYSQL_USER: user
+      MYSQL_PASSWORD: root
     ports:
       - "3306:3306"
     volumes:
-      - mysql_data:/var/lib/mysql
-    command: --default-authentication-plugin=mysql_native_password
+      - db_data:/var/lib/mysql
+
 volumes:
-  mysql_data:
-  vendor:
+  db_data:  

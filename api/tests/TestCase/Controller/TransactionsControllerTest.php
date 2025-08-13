@@ -3,16 +3,16 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Controller;
 
-use App\Controller\UsersController;
+use App\Controller\TransactionsController;
 use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Controller\UsersController Test Case
+ * App\Controller\TransactionsController Test Case
  *
- * @uses \App\Controller\UsersController
+ * @link \App\Controller\TransactionsController
  */
-class UsersControllerTest extends TestCase
+class TransactionsControllerTest extends TestCase
 {
     use IntegrationTestTrait;
 
@@ -22,14 +22,15 @@ class UsersControllerTest extends TestCase
      * @var list<string>
      */
     protected array $fixtures = [
-        'app.Users',
+        'app.Transactions',
+        'app.Items',
     ];
 
     /**
      * Test index method
      *
      * @return void
-     * @uses \App\Controller\UsersController::index()
+     * @link \App\Controller\TransactionsController::index()
      */
     public function testIndex(): void
     {
@@ -40,7 +41,7 @@ class UsersControllerTest extends TestCase
      * Test view method
      *
      * @return void
-     * @uses \App\Controller\UsersController::view()
+     * @link \App\Controller\TransactionsController::view()
      */
     public function testView(): void
     {
@@ -51,7 +52,7 @@ class UsersControllerTest extends TestCase
      * Test add method
      *
      * @return void
-     * @uses \App\Controller\UsersController::add()
+     * @link \App\Controller\TransactionsController::add()
      */
     public function testAdd(): void
     {
@@ -62,7 +63,7 @@ class UsersControllerTest extends TestCase
      * Test edit method
      *
      * @return void
-     * @uses \App\Controller\UsersController::edit()
+     * @link \App\Controller\TransactionsController::edit()
      */
     public function testEdit(): void
     {
@@ -73,20 +74,9 @@ class UsersControllerTest extends TestCase
      * Test delete method
      *
      * @return void
-     * @uses \App\Controller\UsersController::delete()
+     * @link \App\Controller\TransactionsController::delete()
      */
     public function testDelete(): void
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test login method
-     *
-     * @return void
-     * @uses \App\Controller\UsersController::login()
-     */
-    public function testLogin(): void
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

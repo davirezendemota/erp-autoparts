@@ -1,28 +1,19 @@
-FROM php:8.4.5-apache
-
-# Instala pacotes necessários
-RUN apt-get update \
-  && apt-get install -y zip curl unzip libxml2-dev libicu-dev libonig-dev \
-  && docker-php-ext-install mbstring intl simplexml pdo pdo_mysql
-
-# Instala Composer globalmente
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+# Usa a imagem base oficial com Apache
+FROM php:8.2-apache
 
 # Define o diretório de trabalho
 WORKDIR /var/www/html
 
-# Copia os arquivos do Composer
-COPY composer.* ./
+# Instala pacotes necessários do sistema e extensões do PHP
+RUN apt-get update && \
+    apt-get install -y zip unzip libicu-dev libxml2-dev libonig-dev git && \
+    docker-php-ext-install intl pdo pdo_mysql mbstring
 
-# Instala as dependências do projeto
-RUN composer install --ignore-platform-req=ext-intl
+# Copia os arquivos da aplicação para o container
+COPY . /var/www/html
 
-RUN mkdir -p tmp/cache/models tmp/cache/persistent tmp/cache/views \  
-  && chown -R www-data:www-data tmp \
-  && chmod -R 775 tmp \
-
-# Copia a configuração do Apache
-COPY httpd.conf /etc/apache2/apache2.conf
-
-# Habilita o mod_rewrite no Apache
+# Ativa o módulo reescrita do Apache (necessário para CakePHP)
 RUN a2enmod rewrite
+
+# Expõe a porta padrão do Apache
+EXPOSE 80
