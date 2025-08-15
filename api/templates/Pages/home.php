@@ -1,4 +1,4 @@
-<<?php
+<?php
 $this->assign('title', 'Pagina inicial')
 ?>
 
