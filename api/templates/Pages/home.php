@@ -13,4 +13,10 @@ $this->assign('title', 'Pagina inicial')
         </a>
         <br>
 
-        
+          <!-- Botão verde: Movimentação de Estoque -->
+        <a href="<?= $this->Url->build(['controller' => 'Transactions', 'action' => 'index']) ?>" 
+           class="btn btn-success btn-lg" style="width: 300px; font-size: 1.5rem;">
+            Movimentação de Estoque
+        </a>
+    </div>
+</div>
