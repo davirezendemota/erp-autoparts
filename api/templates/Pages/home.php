@@ -11,14 +11,14 @@ $this->assign('title', 'Pagina inicial')
 
           <!-- Botão azul: Gerenciar Items -->
         <a href="<?= $this->Url->build(['controller' => 'Items', 'action' => 'index']) ?>" 
-           class="btn btn-primary btn-lg mb-3" style="width: 300px; font-size: 1.5rem;">
+           class="btn btn-primary btn-lg mb-3 w-100" style="width: 300px; font-size: 1.5rem;">
             Gerenciar Items
         </a>
         <br>
 
           <!-- Botão verde: Movimentação de Estoque -->
         <a href="<?= $this->Url->build(['controller' => 'Transactions', 'action' => 'index']) ?>" 
-           class="btn btn-success btn-lg" style="width: 300px; font-size: 1.5rem;">
+           class="btn btn-success btn-lg w-100" style="width: 300px; font-size: 1.5rem;">
             Movimentação de Estoque
         </a>
     </div>
