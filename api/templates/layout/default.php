@@ -43,15 +43,16 @@ $cakeDescription = 'Gerenciador-Autopeças';
     <?= $this->fetch('script') ?>
 </head>
 <body>
-
-    </nav>
-    <main class="main">
-        <div class="container">
+      <!-- Conteúdo principal -->
+    <main class="flex-fill">
+        <div class="container py-4">
             <?= $this->Flash->render() ?>
             <?= $this->fetch('content') ?>
         </div>
     </main>
-    <footer>
+    <!-- Rodapé -->
+       <footer class="bg-dark text-white text-center py-3 fixed-bottom">
+        <p class="mb-0">© <?= date('Y') ?> - Sistema de Controle de Estoque </p>
     </footer>
 </body>
 </html>
