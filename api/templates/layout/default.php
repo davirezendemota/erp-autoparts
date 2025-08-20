@@ -27,6 +27,15 @@ $cakeDescription = 'Gerenciador-Autopeças';
     </title>
     <?= $this->Html->meta('icon') ?>
 
+     <!-- Bootstrap -->
+    <?= $this->Html->css('https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css') ?>
+    <!-- Seu CSS global -->
+    <?= $this->Html->css('home') ?>
+
+    <?= $this->fetch('meta') ?>
+    <?= $this->fetch('css') ?>
+    <?= $this->fetch('script') ?>
+
     <?= $this->Html->css(['normalize.min', 'milligram.min', 'fonts', 'cake']) ?>
 
     <?= $this->fetch('meta') ?>
