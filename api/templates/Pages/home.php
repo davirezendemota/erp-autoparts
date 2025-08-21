@@ -11,9 +11,9 @@ $this->assign('title', 'Pagina inicial')
 
 <div class="sidebar">
   <h4>Menu</h4>
-  <a href="#">🏠 Inicio</a>
-  <a href="#">📦 Items</a>
-  <a href="#">⚙️ Movimentação de Estoque</a>
+  <?= $this->Html->Link('🏠 Início', ['controller' => 'Pages', 'action' => 'display', 'home'], ['class' => 'd-block mb-2']) ?>
+  <?= $this->Html->Link('📦 Items', ['controller' => 'Items', 'action' => 'index'], ['class' => 'd-block mb-2']) ?>
+  <?= $this->Html->link('⚙️ Movimentação de Estoque', ['controller' => 'Transactions', 'action' => 'index'], ['class' => 'd-block']) ?>
 </div>        
 
           <!-- Botão azul: Gerenciar Items -->
