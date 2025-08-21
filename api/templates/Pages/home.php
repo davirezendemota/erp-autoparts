@@ -9,13 +9,7 @@ $this->assign('title', 'Pagina inicial')
     <div class="text-center">
         <h1 class="mb-5">Controle de Estoque</h1>
 
-<div class="sidebar">
-  <h4>Menu</h4>
-  <?= $this->Html->Link('🏠 Início', ['controller' => 'Pages', 'action' => 'display', 'home'], ['class' => 'd-block mb-2']) ?>
-  <?= $this->Html->Link('📦 Items', ['controller' => 'Items', 'action' => 'index'], ['class' => 'd-block mb-2']) ?>
-  <?= $this->Html->link('⚙️ Movimentação de Estoque', ['controller' => 'Transactions', 'action' => 'index'], ['class' => 'd-block']) ?>
-</div>        
-
+        
           <!-- Botão azul: Gerenciar Items -->
         <a href="<?= $this->Url->build(['controller' => 'Items', 'action' => 'index']) ?>" 
            class="btn btn-primary btn-lg mb-3 w-100" style="width: 300px; font-size: 1.5rem;">
