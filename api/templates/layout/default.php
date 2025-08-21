@@ -54,5 +54,12 @@ $cakeDescription = 'Gerenciador-Autopeças';
        <footer class="bg-dark text-white text-center py-3 fixed-bottom">
         <p class="mb-0">© <?= date('Y') ?> - Sistema de Controle de Estoque </p>
     </footer>
+
+<div class="sidebar">
+  <h4>Menu</h4>
+  <?= $this->Html->Link('🏠 Início', ['controller' => 'Pages', 'action' => 'display', 'home'], ['class' => 'd-block mb-2']) ?>
+  <?= $this->Html->Link('📦 Items', ['controller' => 'Items', 'action' => 'index'], ['class' => 'd-block mb-2']) ?>
+  <?= $this->Html->link('⚙️ Movimentação de Estoque', ['controller' => 'Transactions', 'action' => 'index'], ['class' => 'd-block']) ?>
+
 </body>
 </html>
