@@ -26,40 +26,59 @@ $cakeDescription = 'Gerenciador-Autopeças';
         <?= $this->fetch('title') ?>
     </title>
     <?= $this->Html->meta('icon') ?>
-
      <!-- Bootstrap -->
     <?= $this->Html->css('https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css') ?>
+    <?= $this->Html->script('https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js') ?>
     <!-- Seu CSS global -->
     <?= $this->Html->css('home') ?>
-
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
-
     <?= $this->Html->css(['normalize.min', 'milligram.min', 'fonts', 'cake']) ?>
-
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
 <body>
-      <!-- Conteúdo principal -->
-    <main class="flex-fill">
-        <div class="container py-4">
-            <?= $this->Flash->render() ?>
-            <?= $this->fetch('content') ?>
-        </div>
-    </main>
+
+    <!-- Botão hamburguer (fica sempre visível) -->
+    <button class="btn btn-dark" id="toggleSidebar" type="button">☰</button>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <h4>Menu</h4>
+        <?= $this->Html->link('🏠 Início', ['controller' => 'Pages', 'action' => 'display', 'home'], ['class' => 'd-block mb-2']) ?>
+        <?= $this->Html->link('📦 Items', ['controller' => 'Items', 'action' => 'index'], ['class' => 'd-block mb-2']) ?>
+        <?= $this->Html->link('⚙️ Movimentação de Estoque', ['controller' => 'Transactions', 'action' => 'index'], ['class' => 'd-block']) ?>
+    </div>
+
+    <!-- Conteúdo -->
+    <div id="content">
+        <main class="flex-fill">
+            <div class="container py-4">
+                <?= $this->Flash->render() ?>
+                <?= $this->fetch('content') ?>
+            </div>
+        </main>
+    </div>
+
     <!-- Rodapé -->
-       <footer class="bg-dark text-white text-center py-3 fixed-bottom">
-        <p class="mb-0">© <?= date('Y') ?> - Sistema de Controle de Estoque </p>
+    <footer class="bg-dark text-white text-center py-3 fixed-bottom">
+        <p class="mb-0">© <?= date('Y') ?> - Sistema de Controle de Estoque</p>
     </footer>
 
-<div class="sidebar">
-  <h4>Menu</h4>
-  <?= $this->Html->Link('🏠 Início', ['controller' => 'Pages', 'action' => 'display', 'home'], ['class' => 'd-block mb-2']) ?>
-  <?= $this->Html->Link('📦 Items', ['controller' => 'Items', 'action' => 'index'], ['class' => 'd-block mb-2']) ?>
-  <?= $this->Html->link('⚙️ Movimentação de Estoque', ['controller' => 'Transactions', 'action' => 'index'], ['class' => 'd-block']) ?>
+    <!-- JS: liga/desliga a sidebar -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const toggleBtn = document.getElementById('toggleSidebar');
+        const sidebar   = document.getElementById('sidebar');
+        const content   = document.getElementById('content');
 
+        toggleBtn.addEventListener('click', function () {
+            sidebar.classList.toggle('hidden');
+            content.classList.toggle('full');
+        });
+    });
+    </script>
 </body>
 </html>
