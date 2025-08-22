@@ -27,6 +27,15 @@ $cakeDescription = 'Gerenciador-Autopeças';
     </title>
     <?= $this->Html->meta('icon') ?>
 
+     <!-- Bootstrap -->
+    <?= $this->Html->css('https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css') ?>
+    <!-- Seu CSS global -->
+    <?= $this->Html->css('home') ?>
+
+    <?= $this->fetch('meta') ?>
+    <?= $this->fetch('css') ?>
+    <?= $this->fetch('script') ?>
+
     <?= $this->Html->css(['normalize.min', 'milligram.min', 'fonts', 'cake']) ?>
 
     <?= $this->fetch('meta') ?>
@@ -34,15 +43,23 @@ $cakeDescription = 'Gerenciador-Autopeças';
     <?= $this->fetch('script') ?>
 </head>
 <body>
-
-    </nav>
-    <main class="main">
-        <div class="container">
+      <!-- Conteúdo principal -->
+    <main class="flex-fill">
+        <div class="container py-4">
             <?= $this->Flash->render() ?>
             <?= $this->fetch('content') ?>
         </div>
     </main>
-    <footer>
+    <!-- Rodapé -->
+       <footer class="bg-dark text-white text-center py-3 fixed-bottom">
+        <p class="mb-0">© <?= date('Y') ?> - Sistema de Controle de Estoque </p>
     </footer>
+
+<div class="sidebar">
+  <h4>Menu</h4>
+  <?= $this->Html->Link('🏠 Início', ['controller' => 'Pages', 'action' => 'display', 'home'], ['class' => 'd-block mb-2']) ?>
+  <?= $this->Html->Link('📦 Items', ['controller' => 'Items', 'action' => 'index'], ['class' => 'd-block mb-2']) ?>
+  <?= $this->Html->link('⚙️ Movimentação de Estoque', ['controller' => 'Transactions', 'action' => 'index'], ['class' => 'd-block']) ?>
+
 </body>
 </html>
