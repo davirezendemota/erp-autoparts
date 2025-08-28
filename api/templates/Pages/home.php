@@ -9,6 +9,7 @@ $this->assign('title', 'Pagina inicial')
     <div class="text-center">
         <h1 class="mb-5">Controle de Estoque</h1>
 
+        
           <!-- Botão azul: Gerenciar Items -->
         <a href="<?= $this->Url->build(['controller' => 'Items', 'action' => 'index']) ?>" 
            class="btn btn-primary btn-lg mb-3 w-100" style="width: 300px; font-size: 1.5rem;">
