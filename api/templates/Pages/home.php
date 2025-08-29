@@ -1,9 +1,6 @@
 <?php
 $this->assign('title', 'Pagina inicial')
 ?>
-<!-- Importa Bootstrap e home.css -->
-<?= $this->Html->css('https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css') ?>
-<?= $this->Html->css('home') ?>
  
 <div class="container d-flex justify-content-center align-items-center" style="min-height: 40vh;">
     <div class="text-center">
