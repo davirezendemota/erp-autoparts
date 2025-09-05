@@ -39,10 +39,6 @@ $cakeDescription = 'Gerenciador-Autopeças';
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
-<body>
-
-    <!-- Botão hamburguer (fica sempre visível) -->
-    <button class="btn btn-dark" id="toggleSidebar" type="button">☰</button>
 
     <!-- Sidebar -->
     <div id="sidebar" class="sidebar">
@@ -51,6 +47,8 @@ $cakeDescription = 'Gerenciador-Autopeças';
         <?= $this->Html->link('📦 Items', ['controller' => 'Items', 'action' => 'index'], ['class' => 'd-block mb-2']) ?>
         <?= $this->Html->link('⚙️ Movimentação de Estoque', ['controller' => 'Transactions', 'action' => 'index'], ['class' => 'd-block']) ?>
     </div>
+
+        <button class="btn btn-dark" id="toggleSidebar" type="button">☰</button>
 
     <!-- Conteúdo -->
     <div id="content">
@@ -74,9 +72,10 @@ $cakeDescription = 'Gerenciador-Autopeças';
         const sidebar   = document.getElementById('sidebar');
         const content   = document.getElementById('content');
 
-        toggleBtn.addEventListener('click', function () {
-            sidebar.classList.toggle('hidden');
-            content.classList.toggle('full');
+toggleBtn.addEventListener('click', function () {
+    sidebar.classList.toggle('hidden');
+    content.classList.toggle('full');
+    toggleBtn.classList.toggle('active'); // muda posição junto
         });
     });
     </script>
